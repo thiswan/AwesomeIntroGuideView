@@ -16,6 +16,7 @@
 		C462A8471DC2201800306DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C462A8451DC2201800306DE5 /* LaunchScreen.storyboard */; };
 		C462A8521DC2201800306DE5 /* AwesomeIntroGuideViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C462A8511DC2201800306DE5 /* AwesomeIntroGuideViewTests.m */; };
 		C462A85E1DC2206D00306DE5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C462A85D1DC2206D00306DE5 /* TableViewController.m */; };
+		C49FACA21E18BE4F00463E52 /* AwesomeIntroGuideLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C49FACA11E18BE4F00463E52 /* AwesomeIntroGuideLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		C462A8531DC2201800306DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C462A85C1DC2206D00306DE5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		C462A85D1DC2206D00306DE5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		C49FACA01E18BE4F00463E52 /* AwesomeIntroGuideLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeIntroGuideLayout.h; sourceTree = "<group>"; };
+		C49FACA11E18BE4F00463E52 /* AwesomeIntroGuideLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeIntroGuideLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				C462A83B1DC2201800306DE5 /* AppDelegate.m */,
 				C462A83D1DC2201800306DE5 /* ViewController.h */,
 				C462A83E1DC2201800306DE5 /* ViewController.m */,
+				C49FACA01E18BE4F00463E52 /* AwesomeIntroGuideLayout.h */,
+				C49FACA11E18BE4F00463E52 /* AwesomeIntroGuideLayout.m */,
 				C462A85C1DC2206D00306DE5 /* TableViewController.h */,
 				C462A85D1DC2206D00306DE5 /* TableViewController.m */,
 				C462A8401DC2201800306DE5 /* Main.storyboard */,
@@ -297,6 +302,7 @@
 				C462A83C1DC2201800306DE5 /* AppDelegate.m in Sources */,
 				C462A8391DC2201800306DE5 /* main.m in Sources */,
 				C462A85E1DC2206D00306DE5 /* TableViewController.m in Sources */,
+				C49FACA21E18BE4F00463E52 /* AwesomeIntroGuideLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

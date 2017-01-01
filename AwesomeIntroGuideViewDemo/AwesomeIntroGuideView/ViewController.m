@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <AwesomeIntroGuideView/AwesomeIntroGuideView.h>
+#import "AwesomeIntroGuideLayout.h"
 //主要iOS9下使用http请求需要先在info.list中设置App Transport Security Settings的Allow Arbitrary Loads为YES
 static  NSString * const introGuideImgUrl = @"https://s10.mogucdn.com/p1/161027/idid_ifqtantemfstmzdemizdambqgyyde_483x337.png";
 
@@ -33,6 +34,7 @@ static  NSString * const introGuideImgUrl = @"https://s10.mogucdn.com/p1/161027/
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.collectionView];
     self.coachMarksView.animationDuration = 0.3;
+    self.automaticallyAdjustsScrollViewInsets =NO;
     [self.navigationController.view addSubview:self.coachMarksView];
     self.navigationItem.titleView =({
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -45,6 +47,7 @@ static  NSString * const introGuideImgUrl = @"https://s10.mogucdn.com/p1/161027/
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.collectionView.layoutMargins = UIEdgeInsetsMake(30, 10, 0, 10);
+    self.collectionView.center = self.view.center;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -74,7 +77,7 @@ static  NSString * const introGuideImgUrl = @"https://s10.mogucdn.com/p1/161027/
         [self.introduceArray addObject:[[self.navigationController.navigationBar valueForKey:@"itemStack"][0] valueForKey:@"backButtonView"]];
         [self.coachMarksView loadMarks:self.introduceArray];
         self.coachMarksView.animationDuration = 0.2;
-        [self.coachMarksView loadGuideImageUrl:introGuideImgUrl withPoint:(CGPoint){70,100} redirectURL:@"http://www.mogujie.com/" withFrequency:0];
+        [self.coachMarksView loadGuideImageUrl:introGuideImgUrl withPoint:(CGPoint){50,150} redirectURL:@"http://www.mogujie.com/" withFrequency:0];
         [self.coachMarksView start];
     }
 }
@@ -88,32 +91,26 @@ static  NSString * const introGuideImgUrl = @"https://s10.mogucdn.com/p1/161027/
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 20;
+    return 6;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    if (indexPath.row %5 == 0 && self.introduceArray.count <=3 && indexPath.row != 0) {
+    if (indexPath.row %2 == 0 && self.introduceArray.count <=3 && indexPath.row != 0) {
         [self.introduceArray addObject:cell];
     }
     cell.backgroundColor = [UIColor colorWithRed:arc4random()%100/100. green:arc4random()%100/100. blue:arc4random()%100/100. alpha:arc4random()%100/100.];
     return cell;
 }
 
-#pragma mark - UICollectionViewDelegateFlowLayout
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds)/3 - 10;
-    return (CGSize){width,width};
-}
-
 #pragma mark - getter Method
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:layout];
+        AwesomeIntroGuideLayout *layout = [[AwesomeIntroGuideLayout alloc] init];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 320, 390) collectionViewLayout:layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+        _coachMarksView.center = self.view.center;
         _collectionView.alwaysBounceVertical = YES;
         _collectionView.showsVerticalScrollIndicator = NO;
         [_collectionView setBackgroundColor:[UIColor clearColor]];
